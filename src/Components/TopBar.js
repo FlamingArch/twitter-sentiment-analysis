@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Logo from "./Logo";
+import SearchBox from "./SearchBox";
 
 const TopBar = () => {
   const [expanded, setExpanded] = useState(true);
@@ -12,15 +14,11 @@ const TopBar = () => {
   return (
     <motion.div
       animate={expanded ? { height: "100%" } : { height: "auto" }}
-      className={`${containerTailwindStyles}  ${
-        expanded ? "h-full" : "h-auto"
-      }`}
+      className={`${containerTailwindStyles}`}
     >
-      <p style={{ color: "white", width: "100px", lineHeight: 1 }}>
-        Twitter Sentiment Analysis
-      </p>
-      <div className="h-full grid center">
-        <button onClick={toggleExpand}>Toggle</button>
+      <Logo />
+      <div className="h-full grid place-items-center">
+        <SearchBox />
       </div>
     </motion.div>
   );
