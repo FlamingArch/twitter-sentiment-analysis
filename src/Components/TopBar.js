@@ -9,7 +9,9 @@ const TopBar = () => {
   const containerTailwindStyles =
     "w-full bg-accent1 text-xl text-white p-12 flex flex-col place-content-center shadow-xl";
 
-  const toggleExpand = () => setExpanded(!expanded);
+  const onTextChange = (val) => {
+    val === "" ? setExpanded(true) : setExpanded(false);
+  };
 
   return (
     <motion.div
@@ -18,7 +20,7 @@ const TopBar = () => {
     >
       <Logo />
       <div className="h-full grid place-items-center">
-        <SearchBox />
+        <SearchBox onChange={onTextChange} />
       </div>
     </motion.div>
   );

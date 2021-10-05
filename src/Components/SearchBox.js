@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const SearchBox = () => {
+const SearchBox = (props) => {
   const [empty, setEmpty] = useState(true);
 
   const onTextChange = (e) => {
-    if (e.target.value == "") setEmpty(true);
+    const value = e.target.value;
+    if (value === "") setEmpty(true);
     else setEmpty(false);
+    props.onChange(value);
   };
 
   return (
