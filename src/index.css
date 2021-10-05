@@ -1,3 +1,10 @@
+:root {
+  --color-primary: #f2f3f4;
+  --color-secondary: #222324;
+  --color-accent1: #f00;
+  --color-accent2: #00e0f0;
+}
+
 /* ./src/index.css */
 @tailwind base;
 @tailwind components;

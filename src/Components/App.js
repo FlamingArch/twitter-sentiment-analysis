@@ -1,6 +1,10 @@
+import TopBar from "./TopBar";
+
 function App() {
   return (
-    <h1>Sup</h1>
+    <div className="bg-primary" style={{ width: "100vw", height: "100vh" }}>
+      <TopBar/>
+    </div>
   );
 }
 
