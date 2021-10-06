@@ -1,4 +1,4 @@
-import { SearchProvider } from "./Context";
+import { SearchProvider } from "./SearchContext";
 import TopBar from "./TopBar";
 
 function App() {

@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 
 export const SearchContext = createContext();
 
@@ -9,11 +9,10 @@ export const SearchProvider = (props) => {
 
   const search = () => alert(searchTerm);
 
-  const changeSearchTerm = (val) => {
-    setSearchTerm(val);
+  useEffect(() => {
     changeEmpty();
     changeInputType();
-  };
+  });
 
   const changeEmpty = () => setEmpty(!searchTerm);
 
@@ -27,7 +26,7 @@ export const SearchProvider = (props) => {
 
   return (
     <SearchContext.Provider
-      value={[searchTerm, changeSearchTerm, inputType, empty, search]}
+      value={[searchTerm, setSearchTerm, inputType, empty, search]}
     >
       {props.children}
     </SearchContext.Provider>

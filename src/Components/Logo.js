@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { SearchContext } from "./Context";
+import { SearchContext } from "./SearchContext";
 import twitterIcon from "../Resources/twitter-line.svg";
 
 const Logo = () => {
@@ -12,7 +12,7 @@ const Logo = () => {
         Twitter Sentiment Analysis
       </p>
       {!empty && (
-        <p className="w-full text-sm text-right">Search Term: {searchTerm}</p>
+        <p className="w-full text-sm text-right opacity-60">Showing results for "{searchTerm}"</p>
       )}
     </div>
   );

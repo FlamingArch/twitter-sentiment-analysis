@@ -2,13 +2,13 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import Logo from "./Logo";
 import SearchBox from "./SearchBox";
-import { SearchContext } from "./Context";
+import { SearchContext } from "./SearchContext";
 
 const TopBar = () => {
   const [, , , empty] = useContext(SearchContext);
 
   const containerTailwindStyles =
-    "w-full bg-black text-xl text-white flex flex-col place-content-center shadow-xl relative";
+    "h-full w-full bg-black text-xl text-white flex flex-col place-content-center shadow-xl relative";
 
   return (
     <motion.div

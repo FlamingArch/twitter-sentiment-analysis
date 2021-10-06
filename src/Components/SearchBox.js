@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import searchIcon from "../Resources/search-line.svg";
-import { SearchContext } from "./Context";
+import { SearchContext } from "./SearchContext";
 
 const SearchBox = () => {
   const [searchTerm, setSearchTerm, inputType, empty, search] =
@@ -14,8 +14,8 @@ const SearchBox = () => {
 
   return (
     <div
-      className="rounded-md shadow-xl bg-white flex"
-      style={{ width: "384px", height: "36px" }}
+      className="rounded-md shadow-xl bg-white flex bg-opacity-60 focus-within:bg-opacity-100 transition-all" 
+      style={{ width: "384px", height: "36px", WebkitBackdropFilter: "blur(1rem)" }}
     >
       <motion.img
         animate={empty ? { opacity: 0.6 } : { opacity: 1 }}
@@ -40,7 +40,7 @@ const SearchBox = () => {
               ? { color: "var(--color-accent2)" }
               : { color: "var(--color-accent1)" }
           }
-          className="absolute bg-opacity-0 h-full text-sm text-black bg-transparent w-full top-0 left-0 right-0 bottom-0 border-none focus:border-opacity-0"
+          className="focus:outline-none absolute bg-opacity-0 h-full text-sm text-black bg-transparent w-full top-0 left-0 right-0 bottom-0 border-none focus:border-opacity-0 focus:opacity-100"
           type="text"
           name=""
           id=""
