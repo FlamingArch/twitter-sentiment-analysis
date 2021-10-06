@@ -1,22 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import Logo from "./Logo";
 import SearchBox from "./SearchBox";
+import { SearchContext } from "./Context";
 
 const TopBar = () => {
-  const [expanded, setExpanded] = useState(true);
+  const [, , , empty] = useContext(SearchContext);
 
   const containerTailwindStyles =
     "w-full bg-black text-xl text-white flex flex-col place-content-center shadow-xl relative";
 
-  const onTextChange = (val) => {
-    val === "" ? setExpanded(true) : setExpanded(false);
-  };
-  const onTextSubmit = (e) => alert(e);
-
   return (
     <motion.div
-      animate={expanded ? { height: "100%" } : { height: "224px" }}
+      animate={empty ? { height: "100%" } : { height: "224px" }}
       className={`${containerTailwindStyles}`}
       style={{
         backgroundImage: `url('https://unsplash.com/photos/FdDkfYFHqe4/download?force=true')`,
@@ -26,7 +22,7 @@ const TopBar = () => {
     >
       <motion.div
         animate={
-          expanded
+          empty
             ? {
                 backgroundColor: "#0004",
               }
@@ -41,7 +37,7 @@ const TopBar = () => {
       >
         <Logo />
         <div className="h-full grid place-items-center">
-          <SearchBox onChange={onTextChange} onSubmit={onTextSubmit} />
+          <SearchBox />
         </div>
       </motion.div>
     </motion.div>

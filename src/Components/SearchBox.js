@@ -1,31 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import searchIcon from "../Resources/search-line.svg";
+import { SearchContext } from "./Context";
 
-const SearchBox = (props) => {
-  const [empty, setEmpty] = useState(true);
-  const [inputType, setInputType] = useState("none");
-  const [query, setQuery] = useState("");
+const SearchBox = () => {
+  const [searchTerm, setSearchTerm, inputType, empty, search] =
+    useContext(SearchContext);
 
-  const onTextChange = (e) => {
-    const value = e.target.value;
-
-    if (value === "") {
-      setEmpty(true);
-    } else setEmpty(false);
-
-    if (value[0] === "#") {
-      setInputType("hashtag");
-    } else if (value[0] === "@") {
-      setInputType("user");
-    } else setInputType("none");
-
-    setQuery(value);
-    props.onChange(value);
-  };
-
-  const onTextSubmit = (e) => {
-    props.onSubmit(query);
+  const onFormSubmit = (e) => {
+    search();
+    e.preventDefault();
   };
 
   return (
@@ -40,7 +24,7 @@ const SearchBox = (props) => {
         style={{ padding: "0.64rem 0" }}
         alt=""
       />
-      <div className="relative w-full  py-2">
+      <form onSubmit={onFormSubmit} className="relative w-full  py-2">
         <motion.p
           animate={empty ? { opacity: 0.6 } : { opacity: 0 }}
           className="text-sm text-black"
@@ -60,12 +44,13 @@ const SearchBox = (props) => {
           type="text"
           name=""
           id=""
-          value={query}
-          onChange={onTextChange}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
         />
-      </div>
+      </form>
       <button
-        onClick={onTextSubmit}
+        type="submit"
+        onClick={onFormSubmit}
         className="bg-accent1 text-sm px-4 m-1 rounded-md shadow-lg"
       >
         Go
