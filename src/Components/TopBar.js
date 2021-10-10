@@ -3,9 +3,13 @@ import { motion } from "framer-motion";
 import Logo from "./Logo";
 import SearchBox from "./SearchBox";
 import { SearchContext } from "./SearchContext";
+import bg from "../Resources/bg.jpg";
 
 const TopBar = () => {
   const [, , , empty] = useContext(SearchContext);
+
+  // const imgUrl = "https://unsplash.com/photos/FdDkfYFHqe4/download?force=true";
+  const imgUrl = bg;
 
   const containerTailwindStyles =
     "h-full w-full bg-black text-xl text-white flex flex-col place-content-center shadow-xl relative";
@@ -15,7 +19,7 @@ const TopBar = () => {
       animate={empty ? { height: "100%" } : { height: "224px" }}
       className={`${containerTailwindStyles}`}
       style={{
-        backgroundImage: `url('https://unsplash.com/photos/FdDkfYFHqe4/download?force=true')`,
+        backgroundImage: `url(${imgUrl})`,
         backgroundPosition: "50% 50%",
         backgroundSize: "cover",
       }}

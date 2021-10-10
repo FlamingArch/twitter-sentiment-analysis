@@ -14,14 +14,18 @@ const SearchBox = () => {
 
   return (
     <div
-      className="rounded-md shadow-xl bg-white flex bg-opacity-60 focus-within:bg-opacity-100 transition-all" 
-      style={{ width: "384px", height: "36px", WebkitBackdropFilter: "blur(1rem)" }}
+      className="md:w-96 w-full backdrop-filter backdrop-blur-lg rounded-md shadow-xl bg-white flex bg-opacity-60 focus-within:bg-opacity-100 transition-all "
+      style={{
+        height: "36px",
+        WebkitBackdropFilter: "blur(1rem)",
+        backdropFilter: "blur(1rem)",
+      }}
     >
       <motion.img
         animate={empty ? { opacity: 0.6 } : { opacity: 1 }}
         src={searchIcon}
         className="h-full"
-        style={{ padding: "0.64rem 0" }}
+        style={{ padding: "0.64rem" }}
         alt=""
       />
       <form onSubmit={onFormSubmit} className="relative w-full  py-2">
