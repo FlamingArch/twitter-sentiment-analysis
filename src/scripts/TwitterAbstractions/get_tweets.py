@@ -8,5 +8,5 @@ def get_home_tweets(screen_name, count=20, api=API(authenticate())):
     """
     Get the user's home timeline.
     """
-    tweets = api.user_timeline(screen_name=screen_name, count=count)
+    tweets = api.user_timeline(screen_name=screen_name, count=count, tweet_mode="extended")
     return tweets
